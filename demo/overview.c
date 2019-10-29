@@ -233,7 +233,7 @@ overview(struct nk_context *ctx)
                 nk_label(ctx, "Property float:", NK_TEXT_LEFT);
                 nk_property_float(ctx, "Float:", 0, &property_float, 64.0f, 0.1f, 0.2f);
                 nk_label(ctx, "Property int:", NK_TEXT_LEFT);
-                nk_property_int(ctx, "Int:", 0, &property_int, 100.0f, 1, 1);
+                nk_property_int(ctx, "Int:", 0, &property_int, 100, 1, 1);
                 nk_label(ctx, "Property neg:", NK_TEXT_LEFT);
                 nk_property_int(ctx, "Neg:", -10, &property_neg, 10, 1, 1);
 
@@ -400,7 +400,7 @@ overview(struct nk_context *ctx)
                 }
                 /* progressbar combobox */
                 sum = prog_a + prog_b + prog_c + prog_d;
-                sprintf(buffer, "%lu", sum);
+                sprintf(buffer, "%zu", sum);
                 if (nk_combo_begin_label(ctx, buffer, nk_vec2(200,200))) {
                     nk_layout_row_dynamic(ctx, 30, 1);
                     nk_progress(ctx, &prog_a, 100, NK_MODIFIABLE);
@@ -412,7 +412,7 @@ overview(struct nk_context *ctx)
 
                 /* checkbox combobox */
                 sum = (size_t)(check_values[0] + check_values[1] + check_values[2] + check_values[3] + check_values[4]);
-                sprintf(buffer, "%lu", sum);
+                sprintf(buffer, "%zu", sum);
                 if (nk_combo_begin_label(ctx, buffer, nk_vec2(200,200))) {
                     nk_layout_row_dynamic(ctx, 30, 1);
                     nk_checkbox_label(ctx, weapons[0], &check_values[0]);
